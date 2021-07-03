@@ -9,6 +9,12 @@ const pauseImgAlt = 'pause icon'
 class DigitalTimer extends Component {
   state = {isTimerStarted: false, timerMins: 25, timerSecs: 0}
 
+  componentDidMount() {}
+
+  componentWillUnmount() {
+    this.clearTimer()
+  }
+
   startTimer = () => {
     const {timerMins, timerSecs} = this.state
     const isTimerFinished = timerSecs === timerMins * 60
@@ -76,8 +82,8 @@ class DigitalTimer extends Component {
 
   render() {
     const {isTimerStarted, timerMins, timerSecs} = this.state
-    const isTimerControllerActive = timerSecs > 0
     const {minsInString, secsInString} = this.getTimerInTimeFormat()
+    const isTimerControllerActive = timerSecs > 0
 
     return (
       <div className="container">
@@ -85,9 +91,7 @@ class DigitalTimer extends Component {
         <div className="timer-content-div">
           <div className="timer-display-bg">
             <div className="timer-display-div">
-              <h1 className="count-down-display">
-                {`${minsInString}:${secsInString}`}
-              </h1>
+              <h1 className="count-down-display">{`${minsInString}:${secsInString}`}</h1>
               <p className="timer-status-text">
                 {isTimerStarted ? 'Running' : 'Paused'}
               </p>
