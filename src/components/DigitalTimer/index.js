@@ -9,8 +9,6 @@ const pauseImgAlt = 'pause icon'
 class DigitalTimer extends Component {
   state = {isTimerStarted: false, timerMins: 25, timerSecs: 0}
 
-  componentDidMount() {}
-
   componentWillUnmount() {
     this.clearTimer()
   }
@@ -106,13 +104,13 @@ class DigitalTimer extends Component {
                 type="button"
                 testid="timer"
                 className="play-pause-reset-button"
+                onClick={this.onClickStartPause}
               >
                 <img
                   src={isTimerStarted ? pauseImg : playImg}
                   alt={isTimerStarted ? pauseImgAlt : playImgAlt}
                   testid="timer"
                   className="play-pause-reset-image"
-                  onClick={this.onClickStartPause}
                 />
                 {isTimerStarted ? 'Pause' : 'Start'}
               </button>
@@ -120,13 +118,13 @@ class DigitalTimer extends Component {
                 type="button"
                 testid="timer"
                 className="play-pause-reset-button"
+                onClick={this.resetTimer}
               >
                 <img
                   src="https://assets.ccbp.in/frontend/react-js/reset-icon-img.png"
                   alt="reset icon"
                   className="play-pause-reset-image"
                   testid="timer"
-                  onClick={this.resetTimer}
                 />
                 Reset
               </button>
