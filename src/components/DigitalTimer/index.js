@@ -91,7 +91,10 @@ class DigitalTimer extends Component {
         <div className="timer-content-div">
           <div className="timer-display-bg">
             <div className="timer-display-div">
-              <h1 className="count-down-display">{`${minsInString}:${secsInString}`}</h1>
+              <h1
+                testid="timer"
+                className="count-down-display"
+              >{`${minsInString}:${secsInString}`}</h1>
               <p className="timer-status-text">
                 {isTimerStarted ? 'Running' : 'Paused'}
               </p>
@@ -99,20 +102,30 @@ class DigitalTimer extends Component {
           </div>
           <div className="timer-ui-div">
             <div className="start-reset-div">
-              <button type="button" className="play-pause-reset-button">
+              <button
+                type="button"
+                testid="timer"
+                className="play-pause-reset-button"
+              >
                 <img
                   src={isTimerStarted ? pauseImg : playImg}
                   alt={isTimerStarted ? pauseImgAlt : playImgAlt}
+                  testid="timer"
                   className="play-pause-reset-image"
                   onClick={this.onClickStartPause}
                 />
                 {isTimerStarted ? 'Pause' : 'Start'}
               </button>
-              <button type="button" className="play-pause-reset-button">
+              <button
+                type="button"
+                testid="timer"
+                className="play-pause-reset-button"
+              >
                 <img
                   src="https://assets.ccbp.in/frontend/react-js/reset-icon-img.png"
                   alt="reset icon"
                   className="play-pause-reset-image"
+                  testid="timer"
                   onClick={this.resetTimer}
                 />
                 Reset
@@ -122,6 +135,7 @@ class DigitalTimer extends Component {
             <div className="set-timer-div">
               <button
                 type="button"
+                testid="timer"
                 onClick={this.decreaseCounterMin}
                 disabled={isTimerControllerActive}
                 className="plus-minus-button"
@@ -131,6 +145,7 @@ class DigitalTimer extends Component {
               <p className="timer-value"> {timerMins} </p>
               <button
                 type="button"
+                testid="timer"
                 disabled={isTimerControllerActive}
                 onClick={this.increaseCounterMin}
                 className="plus-minus-button"
